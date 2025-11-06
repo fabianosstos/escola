@@ -1,0 +1,13 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "xml.validation.enabled": true,
+    "xml.format.enabled": true,
+    "xml.validation.schema": {
+        "http://maven.apache.org/POM/4.0.0": "https://maven.apache.org/xsd/maven-4.0.0.xsd"
+    },
+    "xml.format.splitAttributes": "splitNewLine",
+    "xml.format.joinCDATALines": false,
+    "xml.format.joinCommentLines": false,
+    "xml.format.preserveEmptyContent": true,
+    "xml.completion.autoCloseTags": true
+}

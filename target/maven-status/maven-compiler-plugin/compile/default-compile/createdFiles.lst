@@ -1,5 +1,10 @@
 application\Main.class
+models\Administradores.class
 models\Aluno.class
 controllers\LoginController.class
 utils\AlertUtils.class
+models\Disciplina.class
 controllers\AlunoController.class
+models\Turma.class
+application\DatabaseConnection.class
+models\Professor.class

@@ -1,7 +1,9 @@
 package controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import utils.AlertUtils;
 
@@ -18,14 +20,30 @@ public class LoginController {
 
     @FXML
     private void autenticar() {
-        String usuario = txtUsuario.getText();
+        String usuario = txtUsuario.getText().trim();
         String senha = txtSenha.getText();
 
+        // Validar campos vazios
+        if (usuario.isEmpty()) {
+            AlertUtils.showError("Erro de validação", "O campo usuário é obrigatório.");
+            txtUsuario.requestFocus();
+            return;
+        }
+
+        if (senha.isEmpty()) {
+            AlertUtils.showError("Erro de validação", "O campo senha é obrigatório.");
+            txtSenha.requestFocus();
+            return;
+        }
+
+        // Validar credenciais
         if (usuario.equals("admin") && senha.equals("123")) {
-            AlertUtils.showInfo("Login", "Bem-vindo, " + usuario + "!");
+            AlertUtils.showSuccess("Login realizado", "Bem-vindo ao Sistema Escolar, " + usuario + "!");
             ((Stage) btnEntrar.getScene().getWindow()).close();
         } else {
-            AlertUtils.showInfo("Erro", "Usuário ou senha inválidos.");
+            AlertUtils.showError("Erro de autenticação", "Usuário ou senha inválidos.\nVerifique suas credenciais e tente novamente.");
+            txtSenha.clear();
+            txtSenha.requestFocus();
         }
     }
 }
